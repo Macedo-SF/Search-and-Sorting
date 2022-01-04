@@ -1,12 +1,12 @@
 #include "PhyList.h"
 //constructor
-DynList::DynList() {
+PhyList::PhyList() {
 	cSize = 0;
 	mSize = block;
 	List = new int[mSize];
 	for (int i = 0; i < mSize; i++) { List[i] = 0; }
 }
-DynList::DynList(std::string filename) {
+PhyList::PhyList(std::string filename) {
 	std::fstream _file;
 
 	_file.open(filename, std::ios::in);
@@ -25,19 +25,19 @@ DynList::DynList(std::string filename) {
 	}
 	_file.close();
 }
-DynList::DynList(unsigned int size, int range, int start) {
+PhyList::PhyList(unsigned int size, int range, int start) {
 	cSize = mSize = size;
 	List = new int[mSize];
 	srand(time(NULL));
 	for (int i = 0; i < mSize; i++) { List[i] = rand() % range + start; }
 }
 //destructor
-DynList::~DynList() {
+PhyList::~PhyList() {
 	delete[]List;
 	cSize = mSize = 0;
 }
 //insertion
-void DynList::insert(int key, unsigned int pos) {
+void PhyList::insert(int key, unsigned int pos) {
 	if (cSize == mSize) {
 		int* tList = new int[mSize + block];
 		for (int i = 0; i < cSize; i++) { tList[i] = List[i]; }
@@ -56,7 +56,7 @@ void DynList::insert(int key, unsigned int pos) {
 	}
 }
 //swap
-void DynList::swap(int p1, int p2) {
+void PhyList::swap(int p1, int p2) {
 	if (p1 >= 0 and p1 < cSize and p2 >= 0 and p2 < cSize) {
 		int temp = List[p1];
 		List[p1] = List[p2];
@@ -64,7 +64,7 @@ void DynList::swap(int p1, int p2) {
 	}
 }
 //finds
-int DynList::find(int key) {
+int PhyList::find(int key) {
 	int i;
 	for (i = 0; i < cSize; i++) {
 		if (List[i] == key) { std::cout << i+1 << " iterations" << std::endl; return i; }
@@ -72,7 +72,7 @@ int DynList::find(int key) {
 	std::cout << i << " iterations" << std::endl;
 	return -1;
 }
-int DynList::find_low() {
+int PhyList::find_low() {
 	int ret = 0, i;
 	for (i = 1; i < cSize; i++) {
 		if (List[i] < List[ret]) { ret = i; }
@@ -81,13 +81,13 @@ int DynList::find_low() {
 	return ret;
 }
 //prints
-void DynList::print()const {
+void PhyList::print()const {
 	for (unsigned int i = 0; i < cSize; i++) { std::cout << List[i] << std::endl; }
 }
-void DynList::rprint()const {
+void PhyList::rprint()const {
 	for (int i = cSize - 1; i >= 0; i--) { std::cout << List[i] << std::endl; }
 }
-void DynList::printTXT(std::string filename) const {
+void PhyList::printTXT(std::string filename) const {
 	std::fstream _file;
 
 	_file.open(filename, std::ios::out | std::ios::trunc);
