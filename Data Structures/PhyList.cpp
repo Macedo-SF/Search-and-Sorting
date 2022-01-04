@@ -1,4 +1,4 @@
-#include "DynList.h"
+#include "PhyList.h"
 //constructor
 DynList::DynList() {
 	cSize = 0;
