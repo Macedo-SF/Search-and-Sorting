@@ -1,10 +1,10 @@
-#include "DynList.h"
+#include "PhyList.h"
 
 //constructor
-DynList::DynList() {
+PhyList::PhyList() {
 	//std
 }
-DynList::DynList(const std::string &filename) {
+PhyList::PhyList(const std::string &filename) {
 	std::fstream _file;
 
 	_file.open(filename, std::ios::in);
@@ -21,18 +21,18 @@ DynList::DynList(const std::string &filename) {
 	}
 	_file.close();
 }
-DynList::DynList(const unsigned int &size, const int &range, const int &start) {
+PhyList::PhyList(const unsigned int &size, const int &range, const int &start) {
 	srand(time(NULL));
 	for (int i = 0; i < size; i++) {
 		List.push_back(rand() % range + start);
 	}
 }
 //destructor
-DynList::~DynList() {
+PhyList::~PhyList() {
 	List.clear(); //not really needed
 }
 //insertion
-void DynList::insert(const int &key, const unsigned int &pos) {
+void PhyList::insert(const int &key, const unsigned int &pos) {
 	if (List.max_size() == List.size()) {
 		std::cout << "Max size reached" << std::endl;
 		exit(-13);
@@ -43,7 +43,7 @@ void DynList::insert(const int &key, const unsigned int &pos) {
 	}
 }
 //swap
-void DynList::swap(const int &p1, const int &p2) {
+void PhyList::swap(const int &p1, const int &p2) {
 	if (p1 >= 0 and p1 < (List.size() - 1) and p2 >= 0 and p2 < (List.size() - 1)) {
 		int temp = List[p1];
 		List[p1] = List[p2];
@@ -51,7 +51,7 @@ void DynList::swap(const int &p1, const int &p2) {
 	}
 }
 //find
-int DynList::find(const int &key) const {
+int PhyList::find(const int &key) const {
 	int i;
 	for (i = 0; i < List.size(); i++) {
 		if (List[i] == key) { std::cout << i + 1 << " iterations" << std::endl; return i; }
@@ -59,7 +59,7 @@ int DynList::find(const int &key) const {
 	std::cout << i << " iterations" << std::endl;
 	return -1;
 }
-int DynList::find_low() const {
+int PhyList::find_low() const {
 	int ret = 0, i;
 	for (i = 1; i < List.size(); i++) {
 		if (List[i] < List[ret]) { ret = i; }
@@ -68,19 +68,19 @@ int DynList::find_low() const {
 	return ret;
 }
 //print
-void DynList::print()const {
+void PhyList::print()const {
 	for (unsigned int i = 0; i < List.size(); i++) {
 		std::cout << List[i] << " "; 
 	}
 	std::cout << std::endl;
 }
-void DynList::rprint()const {
+void PhyList::rprint()const {
 	for (int i = List.size() - 1; i >= 0; i--) { 
 		std::cout << List[i] << " ";
 	}
 	std::cout << std::endl;
 }
-void DynList::printTXT(const std::string &filename) const {
+void PhyList::printTXT(const std::string &filename) const {
 	std::fstream _file;
 
 	_file.open(filename, std::ios::out | std::ios::trunc);
@@ -98,7 +98,7 @@ void DynList::printTXT(const std::string &filename) const {
 	_file.close();
 }
 //sorting
-int DynList::insertion_sort(const bool& print_iterations, const bool& show_counter) {
+int PhyList::insertion_sort(const bool& print_iterations, const bool& show_counter) {
 	int counter = 0;
 	if (!List.empty()) { //if empty, it'd break when trying to access
 		for (int i = 1; i < List.size(); i++) { //pseudocode says to n-1
