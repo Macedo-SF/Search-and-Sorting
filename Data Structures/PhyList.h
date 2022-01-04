@@ -7,16 +7,16 @@
 #include <ctime>
 #define block 100
 
-class DynList
+class PhyList
 {
 private:
 	int *List; //considered using vector<int>
 	unsigned int cSize, mSize;
 public:
-	DynList(); //default constructor
-	DynList(std::string filename); //read from file
-	DynList(unsigned int size, int range, int start); //generate random list
-	~DynList(); //default destructor
+	PhyList(); //default constructor
+	PhyList(std::string filename); //read from file
+	PhyList(unsigned int size, int range, int start); //generate random list
+	~PhyList(); //default destructor
 	void insert(int key, unsigned int pos); //inserts key into pos
 	void swap(int p1, int p2); //swap p1 and p2
 	int find(int key); //returns the position of a given key, -1 if not found
