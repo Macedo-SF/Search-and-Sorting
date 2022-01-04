@@ -1,4 +1,4 @@
-#include "DynList.h"
+#include "PhyList.h"
 
 void line() {
 	std::cout << "------------------------------" << std::endl;
@@ -6,7 +6,7 @@ void line() {
 
 int main() {
 	//test 1
-	DynList l1("test.txt");
+	PhyList l1("test.txt");
 
 	l1.print(); line();
 
@@ -22,7 +22,7 @@ int main() {
 
 	int counter = 1;
 	while (counter <= 100) {
-		DynList l2(counter, 1000, 1);
+		PhyList l2(counter, 1000, 1);
 		myFile << counter << "," << l2.insertion_sort(false, true) << std::endl;
 		counter++;
 	}
