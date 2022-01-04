@@ -1,4 +1,4 @@
-#include "DynList.h"
+#include "PhyList.h"
 #include "linkedList.h"
 #include "Deque.h"
 
@@ -10,7 +10,7 @@ void line() {
 
 int main() {
 
-	DynList l1("test.txt");
+	PhyList l1("test.txt");
 	linkedList l2("test.txt");
 	Deque l3("test.txt");
 
@@ -93,5 +93,5 @@ int main() {
 	return 0;
 }
 //find_low <---
-//os testes pedem o ponteiro anterior, porem a impletação já estava feita, 
-//julgo que a alteração venha a ser necessária para usar com a insert
+//os testes pedem o ponteiro anterior, porem a impletaÃ§Ã£o jÃ¡ estava feita, 
+//julgo que a alteraÃ§Ã£o venha a ser necessÃ¡ria para usar com a insert
